@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'https://ai.ranjeetdev.online';
 
 const TRAFFIC_CASES = [
   { id: 'anpr', title: 'Number Plate', icon: <Search size={24} />, description: 'AI License Plate recognition' },
@@ -215,9 +215,9 @@ function App() {
                           <td><code className="plate-code">{row.Plate || 'N/A'}</code></td>
                           <td>
                             {row.CropImgUrl ? (
-                              <a href={row.FullImgUrl} target="_blank" rel="noreferrer" title="View Full Evidence">
+                              <a href={row.FullImgUrl?.startsWith('http') ? row.FullImgUrl : `${API_BASE}${row.FullImgUrl}`} target="_blank" rel="noreferrer" title="View Full Evidence">
                                 <img
-                                  src={row.CropImgUrl}
+                                  src={row.CropImgUrl?.startsWith('http') ? row.CropImgUrl : `${API_BASE}${row.CropImgUrl}`}
                                   alt="Violation"
                                   style={{ height: '40px', borderRadius: '4px', border: '1px solid var(--primary)', cursor: 'zoom-in' }}
                                 />
@@ -290,9 +290,9 @@ function App() {
                           <td><code className="plate-code">{row.Plate || 'N/A'}</code></td>
                           <td>
                             {row.CropImgUrl ? (
-                              <a href={row.FullImgUrl} target="_blank" rel="noreferrer" title="View Full Evidence">
+                              <a href={row.FullImgUrl?.startsWith('http') ? row.FullImgUrl : `${API_BASE}${row.FullImgUrl}`} target="_blank" rel="noreferrer" title="View Full Evidence">
                                 <img
-                                  src={row.CropImgUrl}
+                                  src={row.CropImgUrl?.startsWith('http') ? row.CropImgUrl : `${API_BASE}${row.CropImgUrl}`}
                                   alt="Violation"
                                   style={{ height: '40px', borderRadius: '4px', border: '1px solid var(--primary)', cursor: 'zoom-in' }}
                                 />
