@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const API_BASE = 'https://ai.ranjeetdev.online';
+const API_BASE = 'http://localhost:8000';
 
 const TRAFFIC_CASES = [
   { id: 'anpr', title: 'Number Plate', icon: <Search size={24} />, description: 'AI License Plate recognition' },
